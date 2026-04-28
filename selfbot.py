@@ -4,7 +4,8 @@ client = discord.Client(chunk_guilds_at_startup=False)
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.dnd)
+    activity = discord.CustomActivity(name="I am too good!")
+    await client.change_presence(status=discord.Status.dnd, activity=activity)
     
     owned_servers = [guild for guild in client.guilds if guild.owner_id == client.user.id]
     
